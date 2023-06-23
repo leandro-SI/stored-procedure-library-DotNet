@@ -1,7 +1,11 @@
+using ConsultaSP.API.Context;
+using ConsultaSP.API.Services;
+using ConsultaSP.API.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +30,9 @@ namespace ConsultaSP.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<TesteContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("BaseConnection")));
+
+            services.AddScoped<IPessoaService, PessoaService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
