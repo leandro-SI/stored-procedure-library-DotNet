@@ -19,8 +19,8 @@ namespace ConsultaSP.API.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Pessoa>().HasData(
-                new Pessoa { Id = 1, Nome = "Leandro Cesar"},
-                new Pessoa { Id = 2, Nome = "Luciana dos Santos" }
+                new Pessoa { Id = 1, Nome = "Leandro Cesar", Idade = 32},
+                new Pessoa { Id = 2, Nome = "Luciana dos Santos", Idade = 49 }
             );
         }
 
