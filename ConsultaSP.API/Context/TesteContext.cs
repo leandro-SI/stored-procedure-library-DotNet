@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace ConsultaSP.API.Context
 {
-    public class TesteContext : DbContext
+    public partial class TesteContext : DbContext
     {
+        public TesteContext()
+        {
+
+        }
+
         public TesteContext(DbContextOptions<TesteContext> opt) : base(opt)
         {
             this.Database.EnsureCreated();

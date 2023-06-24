@@ -20,7 +20,7 @@ namespace ConsultaSP.API.Controllers
             _pessoaService = pessoaService;
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<ActionResult<List<Pessoa>>> Get()
         {
             var pessoas = await _pessoaService.GetPessoas();
